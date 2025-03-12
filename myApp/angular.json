@@ -128,10 +128,46 @@
           }
         }
       }
+    },
+    "tpi-app-design-system": {
+      "projectType": "library",
+      "root": "projects/tpi-app-design-system",
+      "sourceRoot": "projects/tpi-app-design-system/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tpi-app-design-system/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tpi-app-design-system/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tpi-app-design-system/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/tpi-app-design-system/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
